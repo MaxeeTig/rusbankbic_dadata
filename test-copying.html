@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест копирования реквизитов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+        .test-item h3 {
+            margin-top: 0;
+            color: #28a745;
+        }
+        .example {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .before {
+            color: #dc3545;
+        }
+        .after {
+            color: #28a745;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>✅ Исправление копирования реквизитов</h1>
+        
+        <div class="test-item">
+            <h3>🔧 Что было исправлено</h3>
+            <p>Убраны пробелы из реквизитов при копировании в буфер обмена для удобства вставки в другие системы.</p>
+        </div>
+
+        <div class="test-item">
+            <h3>📋 Примеры изменений</h3>
+            
+            <h4>ИНН:</h4>
+            <div class="example">
+                <span class="before">Было: 77 02 02 1163</span><br>
+                <span class="after">Стало: 7702021163</span>
+            </div>
+
+            <h4>КПП:</h4>
+            <div class="example">
+                <span class="before">Было: 7705 01 001</span><br>
+                <span class="after">Стало: 770501001</span>
+            </div>
+
+            <h4>Корреспондентский счет:</h4>
+            <div class="example">
+                <span class="before">Было: 3010 1810 0000 0000 0201</span><br>
+                <span class="after">Стало: 30101810000000000201</span>
+            </div>
+        </div>
+
+        <div class="test-item">
+            <h3>🎯 Как это работает</h3>
+            <p>Теперь при клике на реквизиты для копирования:</p>
+            <ul>
+                <li><strong>Отображается</strong> - форматированное значение с пробелами для удобства чтения</li>
+                <li><strong>Копируется</strong> - чистое значение без пробелов для удобства вставки</li>
+            </ul>
+        </div>
+
+        <div class="test-item">
+            <h3>🧪 Тестирование</h3>
+            <p>Для проверки изменений:</p>
+            <ol>
+                <li>Откройте основное приложение</li>
+                <li>Найдите любой банк по БИК (например: <span class="highlight">044525225</span>)</li>
+                <li>Кликните на ИНН, КПП или корреспондентский счет</li>
+                <li>Вставьте скопированное значение в любое поле - пробелов не будет!</li>
+            </ol>
+        </div>
+
+        <div class="test-item">
+            <h3>💡 Технические детали</h3>
+            <p>Добавлены новые методы в <code>Utils</code>:</p>
+            <ul>
+                <li><code>getCleanINN()</code> - чистый ИНН без пробелов</li>
+                <li><code>getCleanKPP()</code> - чистый КПП без пробелов</li>
+                <li><code>getCleanAccount()</code> - чистый номер счета без пробелов</li>
+            </ul>
+            <p>Обновлен метод <code>createDetailItem()</code> для поддержки отдельного значения для копирования.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html" style="background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                🚀 Перейти к приложению
+            </a>
+        </div>
+    </div>
+</body>
+</html>

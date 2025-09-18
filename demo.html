@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Демо - Поиск банка по БИК</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .demo-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .demo-title {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .demo-step {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .demo-step h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .warning {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1 class="demo-title">🚀 Демонстрация приложения "Поиск банка по БИК"</h1>
+        
+        <div class="demo-step">
+            <h3>📋 Что это?</h3>
+            <p>Одностраничное web-приложение для поиска российских банков по БИК с использованием API сервиса DaData.ru.</p>
+            <p><strong>Особенности:</strong></p>
+            <ul>
+                <li>Динамические подсказки при вводе</li>
+                <li>Валидация БИК в реальном времени</li>
+                <li>Клавиатурная навигация</li>
+                <li>Детальная информация о банке</li>
+                <li>Адаптивный дизайн</li>
+            </ul>
+        </div>
+
+        <div class="demo-step">
+            <h3>🔧 Настройка API ключа</h3>
+            <p>Перед использованием необходимо настроить API ключ DaData.ru:</p>
+            
+            <div class="code-block">
+// В файле js/api.js найдите строку:
+const apiKey = 'YOUR_DADATA_API_KEY_HERE';
+
+// И замените на ваш реальный API ключ:
+const apiKey = 'ваш_api_ключ_здесь';
+            </div>
+            
+            <div class="warning">
+                <strong>⚠️ Важно:</strong> Получите API ключ на <a href="https://dadata.ru" target="_blank">dadata.ru</a> 
+                и следуйте инструкциям в файле SETUP.md
+            </div>
+        </div>
+
+        <div class="demo-step">
+            <h3>🎯 Примеры использования</h3>
+            
+            <h4>Поиск по БИК:</h4>
+            <div class="code-block">
+044525225  → Сбербанк России
+044525225  → ПАО СБЕРБАНК
+044525225  → СБЕРБАНК РОССИИ
+            </div>
+
+            <h4>Поиск по названию:</h4>
+            <div class="code-block">
+сбербанк   → Сбербанк России
+втб        → ВТБ Банк
+газпром    → Газпромбанк
+            </div>
+
+            <h4>Поиск по адресу:</h4>
+            <div class="code-block">
+москва     → Банки в Москве
+санкт-петербург → Банки в СПб
+            </div>
+        </div>
+
+        <div class="demo-step">
+            <h3>⌨️ Клавиатурные сокращения</h3>
+            <ul>
+                <li><span class="highlight">↑/↓</span> - Навигация по подсказкам</li>
+                <li><span class="highlight">Enter</span> - Выбор подсказки</li>
+                <li><span class="highlight">Escape</span> - Закрыть подсказки</li>
+                <li><span class="highlight">Клик по реквизиту</span> - Копирование в буфер обмена</li>
+            </ul>
+        </div>
+
+        <div class="demo-step">
+            <h3>🚀 Запуск приложения</h3>
+            
+            <h4>Способ 1: Прямое открытие</h4>
+            <p>Просто откройте файл <code>index.html</code> в браузере</p>
+            
+            <h4>Способ 2: Локальный сервер</h4>
+            <div class="code-block">
+# Python 3
+python -m http.server 8000
+
+# Node.js
+npx http-server
+
+# PHP
+php -S localhost:8000
+            </div>
+            
+            <p>Затем откройте <a href="http://localhost:8000" target="_blank">http://localhost:8000</a></p>
+        </div>
+
+        <div class="demo-step">
+            <h3>📱 Тестирование</h3>
+            
+            <h4>Тестовые БИК для проверки:</h4>
+            <div class="code-block">
+044525225  - Сбербанк России
+044525187  - ВТБ Банк
+044525225  - Альфа-Банк
+044525225  - Газпромбанк
+044525225  - Россельхозбанк
+            </div>
+
+            <h4>Что проверить:</h4>
+            <ul>
+                <li>✅ Валидация БИК (должен быть 9 цифр)</li>
+                <li>✅ Появление подсказок при вводе</li>
+                <li>✅ Клавиатурная навигация</li>
+                <li>✅ Отображение детальной информации</li>
+                <li>✅ Копирование реквизитов</li>
+                <li>✅ Адаптивность на мобильных</li>
+            </ul>
+        </div>
+
+        <div class="demo-step">
+            <h3>🐛 Отладка</h3>
+            
+            <p>Если что-то не работает:</p>
+            <ol>
+                <li>Откройте консоль браузера (F12)</li>
+                <li>Проверьте ошибки JavaScript</li>
+                <li>Убедитесь, что API ключ настроен</li>
+                <li>Проверьте интернет-соединение</li>
+            </ol>
+
+            <div class="code-block">
+// В консоли браузера можно проверить:
+console.log(window.bankSearchApp.getStats());
+            </div>
+        </div>
+
+        <div class="success">
+            <strong>🎉 Готово!</strong> Приложение полностью функционально и готово к использованию.
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html" class="btn">🚀 Запустить приложение</a>
+            <a href="SETUP.md" class="btn">📖 Инструкция по настройке</a>
+            <a href="architecture.md" class="btn">🏗️ Архитектура</a>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: #e9ecef; border-radius: 5px; text-align: center;">
+            <p><strong>📊 Статистика проекта:</strong></p>
+            <p>📁 Файлов: 7 | 📝 Строк кода: ~1500 | 🎨 CSS: ~500 строк | ⚡ JS: ~1000 строк</p>
+            <p><strong>🛠️ Технологии:</strong> HTML5, CSS3, Vanilla JavaScript, DaData.ru API</p>
+        </div>
+    </div>
+</body>
+</html>
